@@ -1,0 +1,651 @@
+{
+  "firstLayout": "MainScene",
+  "gdVersion": {
+    "build": 0,
+    "major": 5,
+    "minor": 5,
+    "revision": 0
+  },
+  "properties": {
+    "adaptGameResolutionAtRuntime": true,
+    "folderProject": true,
+    "orientation": "landscape",
+    "packageName": "com.example.extractionprototype",
+    "projectUuid": "fae75f15-52cf-4d61-b286-f5eaffd20d3a",
+    "scaleMode": "nearest",
+    "sizeOnStartupMode": "adaptWidth",
+    "useExternalSourceFiles": false,
+    "version": "0.2.0",
+    "name": "Extraction Shooter - Prototype",
+    "author": "Prototype",
+    "windowWidth": 1280,
+    "windowHeight": 720,
+    "latestCompilationDirectory": "",
+    "maxFPS": 0,
+    "minFPS": 20,
+    "verticalSync": false,
+    "loadingScreen": {
+      "showGDevelopSplash": false
+    },
+    "extensionProperties": [],
+    "platforms": [
+      {
+        "name": "GDevelop JS platform"
+      }
+    ],
+    "currentPlatform": "GDevelop JS platform",
+    "pixelsRounding": false,
+    "templateSlug": "",
+    "description": ""
+  },
+  "resources": {
+    "resources": [
+      {
+        "file": "assets/player.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets\\player.png",
+        "smoothed": false,
+        "userAdded": true,
+        "alwaysLoaded": true
+      },
+      {
+        "file": "assets/bullet.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets\\bullet.png",
+        "smoothed": false,
+        "userAdded": true,
+        "alwaysLoaded": true
+      },
+      {
+        "file": "assets/ground.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets\\ground.png",
+        "smoothed": false,
+        "userAdded": true,
+        "alwaysLoaded": true
+      },
+      {
+        "file": "assets/enemy.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets\\enemy.png",
+        "smoothed": false,
+        "userAdded": true,
+        "alwaysLoaded": true
+      }
+    ],
+    "resourceFolders": []
+  },
+  "objects": [],
+  "objectsGroups": [],
+  "variables": [],
+  "layouts": [
+    {
+      "b": 209,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "MainScene",
+      "name": "MainScene",
+      "oglFOV": 90,
+      "oglZFar": 500,
+      "oglZNear": 1,
+      "r": 35,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": true,
+      "title": "",
+      "v": 35,
+      "uiSettings": {
+        "grid": true,
+        "gridB": 255,
+        "gridG": 180,
+        "gridHeight": 32,
+        "gridOffsetX": 0,
+        "gridOffsetY": 0,
+        "gridR": 158,
+        "gridType": "rectangular",
+        "gridWidth": 32,
+        "snap": true,
+        "windowMask": true,
+        "zoomFactor": 1
+      },
+      "objectsGroups": [],
+      "variables": [
+        {
+          "name": "ShootCooldown",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Score",
+          "type": "number",
+          "value": 0
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 3000,
+          "layer": "",
+          "locked": true,
+          "name": "Ground",
+          "persistentUuid": "e3614a45-0c04-4107-99e0-d70ac6cb241f",
+          "width": 4000,
+          "x": 0,
+          "y": 0,
+          "zOrder": -10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 18,
+          "layer": "",
+          "locked": false,
+          "name": "Player",
+          "persistentUuid": "3e0885da-b3dd-4c38-976a-546469316d5a",
+          "width": 18,
+          "x": 1988.0,
+          "y": 1488.0,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 24,
+          "layer": "",
+          "locked": false,
+          "name": "Enemy",
+          "persistentUuid": "f18cdc0e-30d4-44f8-a351-8969b5bc0d1a",
+          "width": 24,
+          "x": 1650,
+          "y": 1350,
+          "zOrder": 5,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 24,
+          "layer": "",
+          "locked": false,
+          "name": "Enemy",
+          "persistentUuid": "40d1a76f-1598-4904-bc16-3b152aa4ae2a",
+          "width": 24,
+          "x": 2320,
+          "y": 1350,
+          "zOrder": 5,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 24,
+          "layer": "",
+          "locked": false,
+          "name": "Enemy",
+          "persistentUuid": "2013cc70-4e00-4609-9ebc-edbd03f64ede",
+          "width": 24,
+          "x": 1650,
+          "y": 1700,
+          "zOrder": 5,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 24,
+          "layer": "",
+          "locked": false,
+          "name": "Enemy",
+          "persistentUuid": "e20aea12-c08e-42ea-97fe-e98f12f197cc",
+          "width": 24,
+          "x": 2320,
+          "y": 1700,
+          "zOrder": 5,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 24,
+          "layer": "",
+          "locked": false,
+          "name": "Enemy",
+          "persistentUuid": "45be39a5-1e31-4802-8cc6-c0c548292863",
+          "width": 24,
+          "x": 1400,
+          "y": 1500,
+          "zOrder": 5,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 24,
+          "layer": "",
+          "locked": false,
+          "name": "Enemy",
+          "persistentUuid": "66689c4a-f34d-4c10-a177-5afe388ff542",
+          "width": 24,
+          "x": 2550,
+          "y": 1500,
+          "zOrder": 5,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 24,
+          "layer": "",
+          "locked": false,
+          "name": "Enemy",
+          "persistentUuid": "af5684c3-e2a7-4fdd-ba8e-5f6508cc774e",
+          "width": 24,
+          "x": 2000,
+          "y": 1100,
+          "zOrder": 5,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 24,
+          "layer": "",
+          "locked": false,
+          "name": "Enemy",
+          "persistentUuid": "0359747c-0b03-4cc2-8486-0f996018b76b",
+          "width": 24,
+          "x": 2000,
+          "y": 1900,
+          "zOrder": 5,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "ScoreText",
+          "persistentUuid": "f90885fc-931c-499f-b394-b977d2dae2ee",
+          "width": 0,
+          "x": 20,
+          "y": 20,
+          "zOrder": 100,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "objects": [
+        {
+          "name": "Ground",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets\\ground.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "assetStoreId": "",
+          "effects": []
+        },
+        {
+          "name": "Player",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets\\player.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "assetStoreId": "",
+          "effects": []
+        },
+        {
+          "name": "Bullet",
+          "tags": "PROJECTILE",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Speed",
+              "type": "number",
+              "value": 700
+            },
+            {
+              "name": "Life",
+              "type": "number",
+              "value": 1.2
+            }
+          ],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets\\bullet.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "assetStoreId": "",
+          "effects": []
+        },
+        {
+          "name": "Enemy",
+          "tags": "ENEMY",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "HP",
+              "type": "number",
+              "value": 3
+            },
+            {
+              "name": "Speed",
+              "type": "number",
+              "value": 80
+            }
+          ],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets\\enemy.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "assetStoreId": "",
+          "effects": []
+        },
+        {
+          "name": "ScoreText",
+          "smoothed": true,
+          "tags": "",
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "behaviors": [],
+          "string": "PUNKTY: 0",
+          "font": "",
+          "characterSize": 28,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          }
+        }
+      ],
+      "events": [
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 120,
+            "g": 180,
+            "r": 255,
+            "textB": 255,
+            "textG": 255,
+            "textR": 255
+          },
+          "comment": "TOP-DOWN EXTRACTION SHOOTER BASE\nWASD = movement | LMB = shoot | Mouse = aim\nCamera follows player. World is 4000 x 3000.",
+          "comment2": ""
+        },
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "const players = runtimeScene.getObjects(\"Player\");",
+            "if (players.length === 0) return;",
+            "const player = players[0];",
+            "const scoreText = runtimeScene.getObjects(\"ScoreText\")[0];",
+            "const input = runtimeScene.getGame().getInputManager();",
+            "if (scoreText) {",
+            "  const camX = gdjs.evtTools.camera.getCameraX(runtimeScene, \"\", 0);",
+            "  const camY = gdjs.evtTools.camera.getCameraY(runtimeScene, \"\", 0);",
+            "  const camW = gdjs.evtTools.camera.getCameraWidth(runtimeScene, \"\", 0);",
+            "  const camH = gdjs.evtTools.camera.getCameraHeight(runtimeScene, \"\", 0);",
+            "  scoreText.setPosition(camX - camW / 2 + 20, camY - camH / 2 + 20);",
+            "  scoreText.setString(\"PUNKTY: \" + Math.floor(runtimeScene.getVariables().get(\"Score\").getAsNumber()));",
+            "}",
+            "const dt = runtimeScene.getElapsedTime() / 1000;",
+            "const worldW = 4000, worldH = 3000, moveSpeed = 260;",
+            "",
+            "let dx = 0, dy = 0;",
+            "if (input.isKeyPressed(65)) dx -= 1;",
+            "if (input.isKeyPressed(68)) dx += 1;",
+            "if (input.isKeyPressed(87)) dy -= 1;",
+            "if (input.isKeyPressed(83)) dy += 1;",
+            "if (dx || dy) {",
+            "  const len = Math.sqrt(dx*dx + dy*dy);",
+            "  player.setX(player.getX() + dx/len * moveSpeed * dt);",
+            "  player.setY(player.getY() + dy/len * moveSpeed * dt);",
+            "}",
+            "player.setX(Math.max(9, Math.min(worldW-9, player.getX())));",
+            "player.setY(Math.max(9, Math.min(worldH-9, player.getY())));",
+            "",
+            "gdjs.evtTools.camera.centerCamera(runtimeScene, player, true, \"\", 0);",
+            "",
+            "const baseLayer = runtimeScene.getLayer(\"\");",
+            "const mouse = baseLayer.convertCoords(input.getMouseX(), input.getMouseY(), 0, [0,0]);",
+            "const angle = Math.atan2(mouse[1]-player.getY(), mouse[0]-player.getX()) * 180 / Math.PI;",
+            "player.setAngle(angle);",
+            "",
+            "let cooldown = runtimeScene.getVariables().get(\"ShootCooldown\").getAsNumber() - dt;",
+            "if (cooldown < 0) cooldown = 0;",
+            "runtimeScene.getVariables().get(\"ShootCooldown\").setNumber(cooldown);",
+            "",
+            "if (input.isMouseButtonPressed(0) && cooldown <= 0) {",
+            "  runtimeScene.getVariables().get(\"ShootCooldown\").setNumber(0.10);",
+            "  const bullet = runtimeScene.createObject(\"Bullet\");",
+            "  if (bullet) {",
+            "    const r = angle * Math.PI / 180;",
+            "    bullet.setPosition(player.getX()+Math.cos(r)*16, player.getY()+Math.sin(r)*16);",
+            "    bullet.setAngle(angle);",
+            "    bullet.getVariables().get(\"Speed\").setNumber(900);",
+            "    bullet.getVariables().get(\"Life\").setNumber(1.5);",
+            "  }",
+            "}",
+            "",
+            "for (const enemy of runtimeScene.getObjects(\"Enemy\")) {",
+            "  const vx = player.getX()-enemy.getX(), vy = player.getY()-enemy.getY();",
+            "  const dist = Math.sqrt(vx*vx+vy*vy);",
+            "  if (dist > 30) {",
+            "    const speed = enemy.getVariables().get(\"Speed\").getAsNumber();",
+            "    enemy.setX(enemy.getX()+vx/dist*speed*dt);",
+            "    enemy.setY(enemy.getY()+vy/dist*speed*dt);",
+            "  }",
+            "}",
+            "",
+            "for (const bullet of runtimeScene.getObjects(\"Bullet\")) {",
+            "  const r = bullet.getAngle() * Math.PI / 180;",
+            "  const speed = bullet.getVariables().get(\"Speed\").getAsNumber();",
+            "  let life = bullet.getVariables().get(\"Life\").getAsNumber() - dt;",
+            "  bullet.setX(bullet.getX()+Math.cos(r)*speed*dt);",
+            "  bullet.setY(bullet.getY()+Math.sin(r)*speed*dt);",
+            "  bullet.getVariables().get(\"Life\").setNumber(life);",
+            "",
+            "  let hit = false;",
+            "  for (const enemy of runtimeScene.getObjects(\"Enemy\")) {",
+            "    const hx = bullet.getX()-enemy.getX(), hy = bullet.getY()-enemy.getY();",
+            "    if (hx*hx+hy*hy < 15*15) {",
+            "      const hp = enemy.getVariables().get(\"HP\").getAsNumber()-1;",
+            "      enemy.getVariables().get(\"HP\").setNumber(hp);",
+            "      if (hp <= 0) { runtimeScene.getVariables().get(\"Score\").setNumber(runtimeScene.getVariables().get(\"Score\").getAsNumber() + 100); enemy.deleteFromScene(); }",
+            "      hit = true;",
+            "      break;",
+            "    }",
+            "  }",
+            "  if (hit || life <= 0 || bullet.getX() < -20 || bullet.getY() < -20 ||",
+            "      bullet.getX() > worldW+20 || bullet.getY() > worldH+20) {",
+            "    bullet.deleteFromScene();",
+            "  }",
+            "}"
+          ],
+          "parameterObjects": "",
+          "useStrict": false,
+          "eventsSheetExpanded": true
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 0,
+          "ambientLightColorG": 0,
+          "ambientLightColorR": 0,
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "name": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "behaviorsSharedData": []
+    }
+  ],
+  "externalEvents": [],
+  "eventsFunctionsExtensions": [],
+  "externalLayouts": [],
+  "externalSourceFiles": []
+}
