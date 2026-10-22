@@ -1,0 +1,695 @@
+{
+  "firstLayout": "MainScene",
+  "gdVersion": {
+    "build": 0,
+    "major": 5,
+    "minor": 5,
+    "revision": 0
+  },
+  "properties": {
+    "adaptGameResolutionAtRuntime": true,
+    "folderProject": true,
+    "orientation": "landscape",
+    "packageName": "com.example.extractionprototype",
+    "projectUuid": "fae75f15-52cf-4d61-b286-f5eaffd20d3a",
+    "scaleMode": "nearest",
+    "sizeOnStartupMode": "adaptWidth",
+    "useExternalSourceFiles": false,
+    "version": "0.2.0",
+    "name": "Extraction Shooter - Prototype",
+    "author": "Prototype",
+    "windowWidth": 1280,
+    "windowHeight": 720,
+    "latestCompilationDirectory": "",
+    "maxFPS": 0,
+    "minFPS": 20,
+    "verticalSync": false,
+    "loadingScreen": {
+      "showGDevelopSplash": false
+    },
+    "extensionProperties": [],
+    "platforms": [
+      {
+        "name": "GDevelop JS platform"
+      }
+    ],
+    "currentPlatform": "GDevelop JS platform",
+    "pixelsRounding": false,
+    "templateSlug": "",
+    "description": ""
+  },
+  "resources": {
+    "resources": [
+      {
+        "file": "assets/player.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets\\player.png",
+        "smoothed": false,
+        "userAdded": true,
+        "alwaysLoaded": true
+      },
+      {
+        "file": "assets/bullet.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets\\bullet.png",
+        "smoothed": false,
+        "userAdded": true,
+        "alwaysLoaded": true
+      },
+      {
+        "file": "assets/ground.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets\\ground.png",
+        "smoothed": false,
+        "userAdded": true,
+        "alwaysLoaded": true
+      },
+      {
+        "file": "assets/enemy.png",
+        "kind": "image",
+        "metadata": "",
+        "name": "assets\\enemy.png",
+        "smoothed": false,
+        "userAdded": true,
+        "alwaysLoaded": true
+      }
+    ],
+    "resourceFolders": []
+  },
+  "objects": [],
+  "objectsGroups": [],
+  "variables": [],
+  "layouts": [
+    {
+      "b": 209,
+      "disableInputWhenNotFocused": true,
+      "mangledName": "MainScene",
+      "name": "MainScene",
+      "oglFOV": 90,
+      "oglZFar": 500,
+      "oglZNear": 1,
+      "r": 35,
+      "standardSortMethod": true,
+      "stopSoundsOnStartup": true,
+      "title": "",
+      "v": 35,
+      "uiSettings": {
+        "grid": true,
+        "gridB": 255,
+        "gridG": 180,
+        "gridHeight": 32,
+        "gridOffsetX": 0,
+        "gridOffsetY": 0,
+        "gridR": 158,
+        "gridType": "rectangular",
+        "gridWidth": 32,
+        "snap": true,
+        "windowMask": true,
+        "zoomFactor": 1
+      },
+      "objectsGroups": [],
+      "variables": [
+        {
+          "name": "ShootCooldown",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Score",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "Wave",
+          "type": "number",
+          "value": 1
+        },
+        {
+          "name": "WaveSpawnTimer",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "WaveIntermission",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "WaveSpawned",
+          "type": "number",
+          "value": 0
+        },
+        {
+          "name": "WaveTotal",
+          "type": "number",
+          "value": 0
+        }
+      ],
+      "instances": [
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 3000,
+          "layer": "",
+          "locked": true,
+          "name": "Ground",
+          "persistentUuid": "e3614a45-0c04-4107-99e0-d70ac6cb241f",
+          "width": 4000,
+          "x": 0,
+          "y": 0,
+          "zOrder": -10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": true,
+          "height": 18,
+          "layer": "",
+          "locked": false,
+          "name": "Player",
+          "persistentUuid": "3e0885da-b3dd-4c38-976a-546469316d5a",
+          "width": 18,
+          "x": 1988,
+          "y": 1488,
+          "zOrder": 10,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "ScoreText",
+          "persistentUuid": "f90885fc-931c-499f-b394-b977d2dae2ee",
+          "width": 0,
+          "x": 20,
+          "y": 20,
+          "zOrder": 100,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "WaveText",
+          "persistentUuid": "dfce33b7-6d4c-43de-996d-25fe7ab8cc38",
+          "width": 0,
+          "x": 20,
+          "y": 54,
+          "zOrder": 110,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        },
+        {
+          "angle": 0,
+          "customSize": false,
+          "height": 0,
+          "layer": "",
+          "locked": false,
+          "name": "EnemiesText",
+          "persistentUuid": "a566bbc9-cefb-4835-9abf-765f90ff80f6",
+          "width": 0,
+          "x": 20,
+          "y": 84,
+          "zOrder": 110,
+          "numberProperties": [],
+          "stringProperties": [],
+          "initialVariables": []
+        }
+      ],
+      "objects": [
+        {
+          "name": "Ground",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets\\ground.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "assetStoreId": "",
+          "effects": []
+        },
+        {
+          "name": "Player",
+          "tags": "",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets\\player.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "assetStoreId": "",
+          "effects": []
+        },
+        {
+          "name": "Bullet",
+          "tags": "PROJECTILE",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "Speed",
+              "type": "number",
+              "value": 700
+            },
+            {
+              "name": "Life",
+              "type": "number",
+              "value": 1.2
+            }
+          ],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets\\bullet.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "assetStoreId": "",
+          "effects": []
+        },
+        {
+          "name": "Enemy",
+          "tags": "ENEMY",
+          "type": "Sprite",
+          "updateIfNotVisible": false,
+          "variables": [
+            {
+              "name": "HP",
+              "type": "number",
+              "value": 3
+            },
+            {
+              "name": "Speed",
+              "type": "number",
+              "value": 80
+            }
+          ],
+          "behaviors": [],
+          "animations": [
+            {
+              "name": "",
+              "useMultipleDirections": false,
+              "directions": [
+                {
+                  "looping": false,
+                  "timeBetweenFrames": 0.08,
+                  "sprites": [
+                    {
+                      "hasCustomCollisionMask": false,
+                      "image": "assets\\enemy.png",
+                      "points": [],
+                      "originPoint": {
+                        "name": "origine",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "centerPoint": {
+                        "automatic": true,
+                        "name": "centre",
+                        "x": 0,
+                        "y": 0
+                      },
+                      "customCollisionMask": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "assetStoreId": "",
+          "effects": []
+        },
+        {
+          "name": "ScoreText",
+          "smoothed": true,
+          "tags": "",
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "behaviors": [],
+          "string": "PUNKTY: 0",
+          "font": "",
+          "characterSize": 28,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          }
+        },
+        {
+          "name": "WaveText",
+          "smoothed": true,
+          "tags": "",
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "behaviors": [],
+          "string": "FALA: 1",
+          "font": "",
+          "characterSize": 24,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          }
+        },
+        {
+          "name": "EnemiesText",
+          "smoothed": true,
+          "tags": "",
+          "type": "TextObject::Text",
+          "underlined": false,
+          "variables": [],
+          "behaviors": [],
+          "string": "WROGOWIE: 0",
+          "font": "",
+          "characterSize": 24,
+          "color": {
+            "b": 255,
+            "g": 255,
+            "r": 255
+          }
+        }
+      ],
+      "events": [
+        {
+          "disabled": false,
+          "folded": false,
+          "type": "BuiltinCommonInstructions::Comment",
+          "color": {
+            "b": 120,
+            "g": 180,
+            "r": 255,
+            "textB": 255,
+            "textG": 255,
+            "textR": 255
+          },
+          "comment": "TOP-DOWN EXTRACTION SHOOTER BASE\nWASD = movement | LMB = shoot | Mouse = aim\nCamera follows player. World is 4000 x 3000.",
+          "comment2": ""
+        },
+        {
+          "type": "BuiltinCommonInstructions::JsCode",
+          "inlineCode": [
+            "const players = runtimeScene.getObjects(\"Player\");",
+            "if (players.length === 0) return;",
+            "",
+            "const player = players[0];",
+            "const input = runtimeScene.getGame().getInputManager();",
+            "const dt = Math.min(runtimeScene.getElapsedTime() / 1000, 0.05);",
+            "const sceneVars = runtimeScene.getVariables();",
+            "const worldW = 4000;",
+            "const worldH = 3000;",
+            "const moveSpeed = 260;",
+            "",
+            "// PLAYER MOVEMENT",
+            "let moveX = 0;",
+            "let moveY = 0;",
+            "if (input.isKeyPressed(65)) moveX -= 1; // A",
+            "if (input.isKeyPressed(68)) moveX += 1; // D",
+            "if (input.isKeyPressed(87)) moveY -= 1; // W",
+            "if (input.isKeyPressed(83)) moveY += 1; // S",
+            "if (moveX !== 0 || moveY !== 0) {",
+            "  const length = Math.sqrt(moveX * moveX + moveY * moveY);",
+            "  player.setX(player.getX() + (moveX / length) * moveSpeed * dt);",
+            "  player.setY(player.getY() + (moveY / length) * moveSpeed * dt);",
+            "}",
+            "player.setX(Math.max(9, Math.min(worldW - 9, player.getX())));",
+            "player.setY(Math.max(9, Math.min(worldH - 9, player.getY())));",
+            "",
+            "// CAMERA FOLLOWS PLAYER",
+            "gdjs.evtTools.camera.centerCamera(runtimeScene, player, true, \"\", 0);",
+            "",
+            "// AIM TOWARD MOUSE",
+            "const baseLayer = runtimeScene.getLayer(\"\");",
+            "const mouseCoords = baseLayer.convertCoords(input.getMouseX(), input.getMouseY(), 0, [0, 0]);",
+            "const aimAngle = Math.atan2(mouseCoords[1] - player.getY(), mouseCoords[0] - player.getX()) * 180 / Math.PI;",
+            "player.setAngle(aimAngle);",
+            "",
+            "// SHOOTING",
+            "let cooldown = sceneVars.get(\"ShootCooldown\").getAsNumber() - dt;",
+            "if (cooldown < 0) cooldown = 0;",
+            "sceneVars.get(\"ShootCooldown\").setNumber(cooldown);",
+            "if (input.isMouseButtonPressed(0) && cooldown <= 0) {",
+            "  sceneVars.get(\"ShootCooldown\").setNumber(0.12);",
+            "  const bullet = runtimeScene.createObject(\"Bullet\");",
+            "  if (bullet) {",
+            "    const angleRad = aimAngle * Math.PI / 180;",
+            "    bullet.setPosition(",
+            "      player.getX() + Math.cos(angleRad) * 16,",
+            "      player.getY() + Math.sin(angleRad) * 16",
+            "    );",
+            "    bullet.setAngle(aimAngle);",
+            "    bullet.getVariables().get(\"Speed\").setNumber(900);",
+            "    bullet.getVariables().get(\"Life\").setNumber(1.5);",
+            "  }",
+            "}",
+            "",
+            "// WAVE SYSTEM: spawn 4 enemies in wave 1, then +2 each wave.",
+            "let wave = sceneVars.get(\"Wave\").getAsNumber();",
+            "let total = sceneVars.get(\"WaveTotal\").getAsNumber();",
+            "let spawned = sceneVars.get(\"WaveSpawned\").getAsNumber();",
+            "let spawnTimer = sceneVars.get(\"WaveSpawnTimer\").getAsNumber() - dt;",
+            "let intermission = sceneVars.get(\"WaveIntermission\").getAsNumber();",
+            "",
+            "if (total <= 0) {",
+            "  total = 4 + (wave - 1) * 2;",
+            "  spawned = 0;",
+            "  spawnTimer = 0.4;",
+            "  sceneVars.get(\"WaveTotal\").setNumber(total);",
+            "  sceneVars.get(\"WaveSpawned\").setNumber(0);",
+            "}",
+            "const aliveBeforeSpawn = runtimeScene.getObjects(\"Enemy\");",
+            "if (spawned >= total && aliveBeforeSpawn.length === 0) {",
+            "  if (intermission <= 0) intermission = 2.5;",
+            "  intermission -= dt;",
+            "  if (intermission <= 0) {",
+            "    wave += 1;",
+            "    total = 4 + (wave - 1) * 2;",
+            "    spawned = 0;",
+            "    spawnTimer = 0.5;",
+            "    intermission = 0;",
+            "    sceneVars.get(\"Wave\").setNumber(wave);",
+            "    sceneVars.get(\"WaveTotal\").setNumber(total);",
+            "    sceneVars.get(\"WaveSpawned\").setNumber(0);",
+            "  }",
+            "  sceneVars.get(\"WaveIntermission\").setNumber(intermission);",
+            "} else if (spawned < total) {",
+            "  if (spawnTimer <= 0) {",
+            "    const spawnAngle = Math.random() * Math.PI * 2;",
+            "    const spawnRadius = 420 + Math.random() * 160;",
+            "    const spawnX = Math.max(24, Math.min(worldW - 24, player.getX() + Math.cos(spawnAngle) * spawnRadius));",
+            "    const spawnY = Math.max(24, Math.min(worldH - 24, player.getY() + Math.sin(spawnAngle) * spawnRadius));",
+            "    const enemy = runtimeScene.createObject(\"Enemy\");",
+            "    if (enemy) {",
+            "      enemy.setPosition(spawnX, spawnY);",
+            "      enemy.getVariables().get(\"HP\").setNumber(3 + Math.floor((wave - 1) / 3));",
+            "      enemy.getVariables().get(\"Speed\").setNumber(75 + Math.min(45, (wave - 1) * 3));",
+            "      spawned += 1;",
+            "      sceneVars.get(\"WaveSpawned\").setNumber(spawned);",
+            "    }",
+            "    spawnTimer = Math.max(0.25, 1.0 - wave * 0.04);",
+            "  }",
+            "  sceneVars.get(\"WaveSpawnTimer\").setNumber(spawnTimer);",
+            "}",
+            "",
+            "// ENEMIES CHASE THE PLAYER",
+            "for (const enemy of runtimeScene.getObjects(\"Enemy\")) {",
+            "  const vx = player.getX() - enemy.getX();",
+            "  const vy = player.getY() - enemy.getY();",
+            "  const distance = Math.sqrt(vx * vx + vy * vy);",
+            "  if (distance > 28) {",
+            "    const speed = enemy.getVariables().get(\"Speed\").getAsNumber();",
+            "    enemy.setX(enemy.getX() + (vx / distance) * speed * dt);",
+            "    enemy.setY(enemy.getY() + (vy / distance) * speed * dt);",
+            "  }",
+            "}",
+            "",
+            "// BULLETS MOVE, DEAL DAMAGE, AND GIVE POINTS ON KILL",
+            "for (const bullet of runtimeScene.getObjects(\"Bullet\")) {",
+            "  const angleRad = bullet.getAngle() * Math.PI / 180;",
+            "  const speed = bullet.getVariables().get(\"Speed\").getAsNumber();",
+            "  let life = bullet.getVariables().get(\"Life\").getAsNumber() - dt;",
+            "  bullet.setX(bullet.getX() + Math.cos(angleRad) * speed * dt);",
+            "  bullet.setY(bullet.getY() + Math.sin(angleRad) * speed * dt);",
+            "  bullet.getVariables().get(\"Life\").setNumber(life);",
+            "  let hit = false;",
+            "  for (const enemy of runtimeScene.getObjects(\"Enemy\")) {",
+            "    const hitX = bullet.getX() - enemy.getX();",
+            "    const hitY = bullet.getY() - enemy.getY();",
+            "    if (hitX * hitX + hitY * hitY < 15 * 15) {",
+            "      const hp = enemy.getVariables().get(\"HP\").getAsNumber() - 1;",
+            "      enemy.getVariables().get(\"HP\").setNumber(hp);",
+            "      if (hp <= 0) {",
+            "        sceneVars.get(\"Score\").setNumber(sceneVars.get(\"Score\").getAsNumber() + 100);",
+            "        enemy.deleteFromScene();",
+            "      }",
+            "      hit = true;",
+            "      break;",
+            "    }",
+            "  }",
+            "  if (hit || life <= 0 || bullet.getX() < 0 || bullet.getY() < 0 ||",
+            "      bullet.getX() > worldW || bullet.getY() > worldH) {",
+            "    bullet.deleteFromScene();",
+            "  }",
+            "}",
+            "",
+            "// HUD: pin all three text objects to the top-left of the visible camera.",
+            "const camX = gdjs.evtTools.camera.getCameraX(runtimeScene, \"\", 0);",
+            "const camY = gdjs.evtTools.camera.getCameraY(runtimeScene, \"\", 0);",
+            "const camW = gdjs.evtTools.camera.getCameraWidth(runtimeScene, \"\", 0);",
+            "const camH = gdjs.evtTools.camera.getCameraHeight(runtimeScene, \"\", 0);",
+            "const hudX = camX - camW / 2 + 20;",
+            "const hudY = camY - camH / 2 + 20;",
+            "const scoreText = runtimeScene.getObjects(\"ScoreText\")[0];",
+            "const waveText = runtimeScene.getObjects(\"WaveText\")[0];",
+            "const enemiesText = runtimeScene.getObjects(\"EnemiesText\")[0];",
+            "if (scoreText) {",
+            "  scoreText.setPosition(hudX, hudY);",
+            "  scoreText.setString(\"PUNKTY: \" + Math.floor(sceneVars.get(\"Score\").getAsNumber()));",
+            "}",
+            "if (waveText) {",
+            "  waveText.setPosition(hudX, hudY + 34);",
+            "  waveText.setString(\"FALA: \" + Math.floor(sceneVars.get(\"Wave\").getAsNumber()));",
+            "}",
+            "if (enemiesText) {",
+            "  const remaining = runtimeScene.getObjects(\"Enemy\").length +",
+            "    Math.max(0, sceneVars.get(\"WaveTotal\").getAsNumber() - sceneVars.get(\"WaveSpawned\").getAsNumber());",
+            "  enemiesText.setPosition(hudX, hudY + 68);",
+            "  enemiesText.setString(\"WROGOWIE: \" + Math.floor(remaining));",
+            "}"
+          ],
+          "parameterObjects": "",
+          "useStrict": false,
+          "eventsSheetExpanded": true
+        }
+      ],
+      "layers": [
+        {
+          "ambientLightColorB": 0,
+          "ambientLightColorG": 0,
+          "ambientLightColorR": 0,
+          "followBaseLayerCamera": false,
+          "isLightingLayer": false,
+          "name": "",
+          "visibility": true,
+          "cameras": [
+            {
+              "defaultSize": true,
+              "defaultViewport": true,
+              "height": 0,
+              "viewportBottom": 1,
+              "viewportLeft": 0,
+              "viewportRight": 1,
+              "viewportTop": 0,
+              "width": 0
+            }
+          ],
+          "effects": []
+        }
+      ],
+      "behaviorsSharedData": []
+    }
+  ],
+  "externalEvents": [],
+  "eventsFunctionsExtensions": [],
+  "externalLayouts": [],
+  "externalSourceFiles": []
+}
