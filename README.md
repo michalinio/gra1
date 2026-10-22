@@ -8,4 +8,4 @@
 
 # Gra będzie na bazie fal z coraz mocniejszymi przeciwnikami między którymi będzie można kupować nowe wyposażenie
 
-# Teraz trzeba bedzie dodać nowych przeciwnikow
+# Teraz trzeba bedzie dodać nowych przeciwnikow no i hp gracza
