@@ -8,4 +8,4 @@
 
 # Gra będzie na bazie fal z coraz mocniejszymi przeciwnikami między którymi będzie można kupować nowe wyposażenie
 
-# dodanie nowych broni i mechanike kupowania
+# dodanie opcji sklepu między rundami do kupowania broni i ich ulepszania oraz jakieś nowe warianty przeciwników
